@@ -2,11 +2,15 @@
   import Saymyname from "./Saymyname.svelte";
   import Timer from "./Timer.svelte";
   import Image from "./Image.svelte";
+
+  console.log(Timer);
+  const timerEnds = (e) => {};
 </script>
 
 <div>
   <Saymyname />
-  <Timer />
+  <Timer on:end={timerEnds} />
+
   <Image />
 </div>
 
@@ -17,7 +21,7 @@
     justify-content: center;
     align-items: center;
     margin: auto;
-    border: 2px solid rgba(0, 0, 0, 0.726);
+    border: 2px solid rgba(0, 0, 0, 0.326);
     padding: 50px;
     width: 40%;
   }
