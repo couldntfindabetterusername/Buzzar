@@ -1,8 +1,9 @@
 <script>
   import Progressbar from "./Progressbar.svelte";
+  import { createEventDispatcher } from "svelte";
 
   let input;
-
+  const dispatch = createEventDispatcher();
   const totalSec = 10;
   let secondsLeft = totalSec;
 
@@ -19,12 +20,17 @@
     e.preventDefault();
     if (input.toUpperCase() == "HEISENBERG") {
       console.log("true");
+
+      dispatch("end", "true");
     } else {
       console.log("f");
+      dispatch("end", "false");
     }
+    clearInterval(timer);
   };
 </script>
 
+<!--html-->
 <h3>time left: {secondsLeft}</h3>
 <Progressbar {prog} />
 <form on:submit={(e) => eventHandler(e)}>
